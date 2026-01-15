@@ -1,0 +1,40 @@
+{
+  "name": "mobile-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cap sync",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
+    "mobile": "vite build && cap sync && cap run android",
+    "android": "cap run android",
+    "android:lr": "sh -e scripts/live-reload.sh"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.0.0",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@tsconfig/svelte": "^5.0.6",
+    "@types/node": "^24.10.1",
+    "env-cmd": "^11.0.0",
+    "svelte": "^5.43.8",
+    "svelte-check": "^4.3.4",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "@capacitor-community/sqlite": "^7.0.3",
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/camera": "^8.0.0",
+    "@capacitor/core": "^8.0.0",
+    "@capacitor/local-notifications": "^8.0.0",
+    "@ionic/pwa-elements": "^3.3.0",
+    "jeep-sqlite": "^2.8.0",
+    "nanoid": "^5.1.6",
+    "nanoid-dictionary": "^5.0.0",
+    "reflect-metadata": "^0.2.2",
+    "sql.js": "^1.13.0",
+    "typeorm": "^0.3.28"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "compilerOptions": {
+    "strictPropertyInitialization": false,
+    "types": ["node"]
+  },
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

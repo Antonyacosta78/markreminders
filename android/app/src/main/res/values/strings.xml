@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MarkReminders</string>
+    <string name="title_activity_main">MarkReminders</string>
+    <string name="package_name">com.matoxina.markreminders</string>
+    <string name="custom_url_scheme">com.matoxina.markreminders</string>
+</resources>
