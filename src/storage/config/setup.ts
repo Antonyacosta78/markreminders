@@ -1,11 +1,11 @@
 import { JeepSqlite } from 'jeep-sqlite/dist/components/jeep-sqlite';
-import sqliteParams from "./config";
+import config from "./config";
 import dataSource from "./data-source";
 
-customElements.define('jeep-sqlite', JeepSqlite);
+customElements.define("jeep-sqlite", JeepSqlite);
 
 export async function setupConnection() {
-  await sqliteParams.connection.checkConnectionsConsistency().catch((e) => {
+  await config.connection.checkConnectionsConsistency().catch((e) => {
     console.log(e);
     return {};
   });
@@ -14,8 +14,8 @@ export async function setupConnection() {
   if (dataSource.dataSource.isInitialized) {
     await dataSource.dataSource.runMigrations();
   }
-  if (sqliteParams.platform === "web") {
-    await sqliteParams.connection.saveToStore(dataSource.dbName);
+  if (config.platform === "web") {
+    await config.connection.saveToStore(dataSource.dbName);
   }
 }
 
@@ -27,7 +27,7 @@ export function setupBrowserConnection(): Promise<void> {
       customElements
         .whenDefined("jeep-sqlite")
         .then(async () => {
-          await sqliteParams.connection.initWebStore();
+          await config.connection.initWebStore();
           await setupConnection();
           resolve();
         })
@@ -36,6 +36,5 @@ export function setupBrowserConnection(): Promise<void> {
           reject(new Error(`Error: ${err}`));
         });
     });
-  })
-  
+  });
 }

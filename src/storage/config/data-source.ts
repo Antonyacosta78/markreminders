@@ -1,4 +1,7 @@
 import { DataSource, type DataSourceOptions } from "typeorm";
+import * as entities from "../entities";
+import * as migrations from "../migrations";
+
 import config from "./config";
 
 const DB_NAME = "markreminders";
@@ -9,11 +12,12 @@ const dataSourceConfig: DataSourceOptions = {
   driver: config.connection,
   database: DB_NAME,
   mode: "no-encryption",
-  entities: ["entities/*{.ts,.js}"],
+  entities: Object.values(entities),
+  migrations: Object.values(migrations),
   subscribers: [],
-  logging: [/*'query',*/ 'error','schema'],
-  synchronize: false,     // !!!You will lose all data in database if set to `true`
-  migrationsRun: false
+  logging: [/*'query',*/ "error", "schema"],
+  synchronize: false, // !!!You will lose all data in database if set to `true`
+  migrationsRun: false,
 };
 
 const dataSource = new DataSource(dataSourceConfig);
