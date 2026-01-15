@@ -6,7 +6,7 @@ export default async function getPicture() {
     allowEditing: false,
     resultType: CameraResultType.DataUrl,
     source: CameraSource.Camera,
-    height: 600, //px? docs are not clear on that
+    height: 600, //px? dpi? docs are not clear on that
   });
   
   return image;
