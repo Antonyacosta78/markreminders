@@ -5,6 +5,7 @@ import { svelte } from "@sveltejs/vite-plugin-svelte";
 export default defineConfig(async () => {
   return {
     plugins: [svelte()],
+    assetsInclude: ["**/*.wasm"],
     esbuild: {
       keepNames: true, // Still highly recommended for ORM stability
       tsconfigRaw: {

@@ -10,7 +10,9 @@
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
     "mobile": "vite build && cap sync && cap run android",
     "android": "cap run android",
-    "android:lr": "sh -e scripts/live-reload.sh"
+    "android:lr": "sh -e scripts/live-reload.sh",
+    "copy-wasm": "sh -e scripts/copy-wasm.sh",
+    "postinstall": "sh -e scripts/copy-wasm.sh"
   },
   "devDependencies": {
     "@capacitor/cli": "^8.0.0",
